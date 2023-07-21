@@ -4,25 +4,25 @@
   cloudera.cluster.cm_api:
     endpoint: "/clusters/{{ cluster_name | urlencode() }}/services"
   register: cloudera_manager_all_services
-  no_log: yes  # overly verbose
+  no_log: no  # overly verbose
 
 - name: Get All Mgmt Roles from CM
   cloudera.cluster.cm_api:
     endpoint: "/cm/service/roles"
   register: cloudera_manager_mgmt_roles
-  no_log: yes  # overly verbose
+  no_log: no  # overly verbose
 
 - name: Get CM Hosts info
   cloudera.cluster.cm_api:
     endpoint: "/hosts"
   register: hosts_details
-  no_log: yes  # overly verbose
+  no_log: no  # overly verbose
 
 - name: Get CM deployment of services
   cloudera.cluster.cm_api:
     endpoint: "/cm/deployment"
   register: cm_deployment_services
-  no_log: yes  # overly verbose
+  no_log: no  # overly verbose
 
 - name: Get cluster parcel details
   cloudera.cluster.cm_api:
