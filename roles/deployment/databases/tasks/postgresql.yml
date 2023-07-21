@@ -20,6 +20,7 @@
   with_items: "{{ databases | json_query('*.host') | unique }}"
   delegate_to: "{{ item }}"
   connection: ssh
+  become: yes
   when: item in groups.db_server
 
 - name: Create database roles
